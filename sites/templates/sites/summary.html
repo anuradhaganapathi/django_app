@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Summary</h2>
+{% load staticfiles %}
+<html>
+  <head>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+  {% block content %}
+        <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	    <li><a href="/sites">Sites</a></li>
+        <li><a href="/summary">Summary</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+<div class = "container">
+<div class="jumbotron">
+    <button type="button" class="btn btn-primary ">Sum</button>
+<button type="button" class="btn btn-primary" onclick="location.href='/summary-average'">Average</button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Site</th>
+        <th>A value</th>
+        <th>B value</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+    <tr>
+
+       <td> {{ object.site_name }} </td>
+       <td> {{ object.sumAvalue }} </td>
+       <td> {{ object.sumBvalue }} </td>
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+</div>
+
+{% endblock %}
+  </body>
+</html>
